@@ -278,8 +278,9 @@ public class Chat {
         }
         return true;
     }
+     
 
-    private String encipher(String plaintext) {
+    private  String encipher(String plaintext) {
      String ciphertext = cipherStrategy.encipher(plaintext);
         return ciphertext;
   
