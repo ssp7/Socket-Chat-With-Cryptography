@@ -283,7 +283,6 @@ public class Chat {
     private  String encipher(String plaintext) {
      String ciphertext = cipherStrategy.encipher(plaintext);
         return ciphertext;
-  
     }
     
     private String decipher(String ciphertext) {
