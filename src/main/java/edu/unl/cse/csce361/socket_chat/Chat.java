@@ -15,8 +15,10 @@ public class Chat {
     private boolean isHost;
     private ResourceBundle bundle;
     private Set<String> keywords;
+    private Cipher cipherStrategy;
 
     public Chat() {
+    	cipherStrategy = new NullCipher();
         setLocale(Locale.getDefault());
         socket = connect(new Scanner(System.in));
     }
@@ -256,20 +258,21 @@ public class Chat {
         }
     }
 
-    private boolean handleKeyword(String keyword, boolean localMessage, BufferedReader input, PrintStream output) {
+    private boolean handleKeyword(String keyword, boolean localMessage, BufferedReader input, PrintStream output) throws IOException {
         if (keyword.equals(bundle.getString("communicate.keyword.exit"))) {
             return false;
-        /*
+        
         } else if (keyword.equals(bundle.getString("communicate.keyword.setLocale"))) {
             if (localMessage) {
-                Prompt user using output.println() (be sure to use i18n properties)
-                and get response using input.readLine(). Get the appropriate Locale and call
-                setLocale( ... );
+            	
+                output.println("Please enter the code of language you would like to change");// (be sure to use i18n properties)
+                input.readLine();
+                setLocale( Locale.FRENCH );
             }
             else {
                 output.println("Remote chatter is making updates; please be patient."); // replace with i18n property
             }
-        */
+        
         } else {
             output.println(bundle.getString("communicate.error.unrecognizedKeyword") + ": " + keyword);
         }
@@ -277,20 +280,21 @@ public class Chat {
     }
 
     private String encipher(String plaintext) {
-//        String ciphertext = ...;
-//        return ciphertext;
-        return plaintext;
-    }
-
-    private String decipher(String ciphertext) {
-//        String plaintext = ...;
-//        return plaintext;
+     String ciphertext = cipherStrategy.encipher(plaintext);
         return ciphertext;
+  
+    }
+    
+    private String decipher(String ciphertext) {
+       String plaintext = cipherStrategy.decipher(ciphertext);
+
+        return plaintext;
     }
 
     public static void main(String[] args) {
         Chat chat = new Chat();
         chat.communicate();
         chat.disconnect();
+      
     }
 }
