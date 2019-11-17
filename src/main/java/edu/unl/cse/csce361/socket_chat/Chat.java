@@ -18,7 +18,7 @@ public class Chat {
 	private Cipher cipherStrategy;
     String[] keys = new String[5];
 	public Chat() {
-		cipherStrategy = CipherFactory.createCipher("Caesar",keys);
+		cipherStrategy = new CaesarCipher(5);
 		setLocale(Locale.getDefault());
 		socket = connect(new Scanner(System.in));
 	}
