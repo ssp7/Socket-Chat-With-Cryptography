@@ -269,25 +269,10 @@ public class Chat {
 				setLocale( Locale.FRENCH );
 			}
 		}    
-		else if(keyword.equals(bundle.getString("communicate.keyword.cipher"))) {
-		Cipher c = null;
-			if(localMessage) {
-			output.println("Please enter the name of the cipher you want");
-			   String name = input.readLine();
-				String[] keys = new String[10];
-			c = CipherFactory.createCipher(name, keys);
-			
-			output.println("Enter the text");
-			String inputText = input.readLine();
-			output.println(c.encipher(inputText));
-			}
-			else {
-				String encipheredMessage = input.readLine();
-				if(encipheredMessage != null) {
-					output.println(c.decipher(encipheredMessage));
-				}
-			}
-		    
+		else if(keyword.equals(bundle.getString("communicate.keyword.Caesar"))) {
+              String[] keys = new String[10];
+			   
+		      this.cipherStrategy = CipherFactory.createCipher("Caesar", keys);
 		} 
 
 		else {
