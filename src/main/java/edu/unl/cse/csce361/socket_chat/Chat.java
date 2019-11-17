@@ -16,9 +16,9 @@ public class Chat {
 	private ResourceBundle bundle;
 	private Set<String> keywords;
 	private Cipher cipherStrategy;
-
+    String[] keys = new String[5];
 	public Chat() {
-		cipherStrategy = CipherFactory.createCipher();
+		cipherStrategy = CipherFactory.createCipher("Caesar",keys);
 		setLocale(Locale.getDefault());
 		socket = connect(new Scanner(System.in));
 	}
@@ -269,10 +269,11 @@ public class Chat {
 				setLocale( Locale.FRENCH );
 			}
 		}    
-		else if(keyword.equals(bundle.getString("communicate.keyword.Caesar"))) {
-              String[] keys = new String[10];
+		else if(keyword.equals(bundle.getString("communicate.keyword.changeCipher"))) {
+            String name = input.readLine();  
+			String[] keys = new String[10];
 			   
-		      this.cipherStrategy = CipherFactory.createCipher("Caesar", keys);
+		      this.cipherStrategy = CipherFactory.createCipher(name, keys);
 		} 
 
 		else {
