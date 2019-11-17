@@ -280,21 +280,21 @@ public class Chat {
              output.println("Please enter the name of the cipher you want");
              String name =  input.readLine();
              String[] keys = new String[10];   
-             CipherFactory.createCipher(name, keys); 
+            Cipher ci = CipherFactory.createCipher(name, keys); 
              System.out.println("Would you like to encrypt or decrypt the text ? Press 1 for encrypt and press 2 for decrypt");
              
              String text = input.readLine();
              if(text.equalsIgnoreCase("1")) {
             output.println("Please enter the text you would like to encrypt");
             String inputEncrypt = input.readLine();
-            String encipher = CipherFactory.createCipher(name,keys).decipher(inputEncrypt);
+            String encipher = ci.decipher(inputEncrypt);
            
              output.println("Here is your encrypted text :- "+encipher);
              }
              else if(text.equalsIgnoreCase("2")) {
             	output.println("Please enter the text you would like to decrypt");
             	String inputDecrypt = input.readLine();
-            	String decipher = CipherFactory.createCipher(name,keys).decipher(inputDecrypt);
+            	String decipher = ci.decipher(inputDecrypt);
             	output.println("Here is your decrypted text :- " + decipher);
              }
         }    
