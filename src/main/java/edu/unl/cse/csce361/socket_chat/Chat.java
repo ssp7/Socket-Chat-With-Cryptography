@@ -286,7 +286,7 @@ public class Chat {
              if(text.equalsIgnoreCase("1")) {
             output.println("Please enter the text you would like to encrypt");
             String inputEncrypt = input.readLine();
-            String encipher = ci.decipher(inputEncrypt);
+            String encipher = ci.encipher(inputEncrypt);
            
              output.println("Here is your encrypted text :- "+encipher);
              }
