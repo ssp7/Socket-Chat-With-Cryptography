@@ -271,14 +271,23 @@ public class Chat {
 		}    
 		else if(keyword.equals(bundle.getString("communicate.keyword.cipher"))) {
 			output.println("Please enter the name of the cipher you want");
-			String name = input.readLine();
-			String[] keys = new String[10];
-			Cipher c = CipherFactory.createCipher(name, keys);
+			   String name = input.readLine();
+				String[] keys = new String[10];
+				Cipher c = CipherFactory.createCipher(name, keys);
+			if(localMessage) {
+			
 			output.println("Enter the text");
 			String inputText = input.readLine();
 			output.println(c.encipher(inputText));
+			}
+			else {
+				String encipheredMessage = input.readLine();
+				if(encipheredMessage != null) {
+					output.println(c.decipher(encipheredMessage));
+				}
+			}
 		    
-		}
+		} 
 
 		else {
 			output.println(bundle.getString("communicate.error.unrecognizedKeyword") + ": " + keyword);
