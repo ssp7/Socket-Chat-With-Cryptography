@@ -19,7 +19,7 @@ public class CipherFactory {
 			return new XorCipher();
 		}
 		else {
-			return new NullCipher();
+			return createCipher();
 		}
 		
 	}
@@ -32,7 +32,7 @@ public class CipherFactory {
 		String[] keys = new String[5];
 	 
 	Cipher ci = createCipher(name, keys);
-	System.out.println(ci.encipher("Heyo")); 
+	System.out.println(ci.decipher("Mjdt")); 
 	
 	}
 	

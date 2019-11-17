@@ -269,14 +269,18 @@ public class Chat {
                 input.readLine();
                 setLocale( Locale.FRENCH );
             }
-            else {
-                output.println("Remote chatter is making updates; please be patient."); // replace with i18n property
-            }
-        
+            else if(keyword.equals(bundle.getString("communicate.keyword.cipher"))) {
+                output.println("Please enter the name of the cipher you want");
+                String name = input.readLine();
+                String[] keys = new String[10];
+                CipherFactory.createCipher(name, keys);
+           }
         }
         else if(keyword.equals(bundle.getString("communicate.keyword.cipher"))) {
-             output.println("");
-             CipherFactory.createCipher(name, keys);
+             output.println("Please enter the name of the cipher you want");
+             String name =  input.readLine();
+             String[] keys = new String[10];   
+             CipherFactory.createCipher(name, keys); 
         }    
         else {
             output.println(bundle.getString("communicate.error.unrecognizedKeyword") + ": " + keyword);
@@ -300,6 +304,6 @@ public class Chat {
         Chat chat = new Chat();
         chat.communicate();
         chat.disconnect();
-      
+         
     }
 }
