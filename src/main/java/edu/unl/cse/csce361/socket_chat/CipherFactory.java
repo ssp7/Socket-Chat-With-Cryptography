@@ -5,9 +5,7 @@ import java.util.Scanner;
 public class CipherFactory {
 
 	public static Cipher createCipher(String name, String[] keys) {
-		System.out.println("Please enter the cipher method you want to implement");
-		Scanner scan = new Scanner(System.in);
-		name = scan.nextLine();
+	    Scanner scan = new Scanner(System.in);
 		if(name.equalsIgnoreCase("Caesar")) {
 			System.out.println("Please enter shift for the caesar cipher");
 			keys[0] = scan.nextLine();
