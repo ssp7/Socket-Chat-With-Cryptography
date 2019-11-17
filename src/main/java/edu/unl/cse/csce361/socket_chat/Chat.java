@@ -18,7 +18,7 @@ public class Chat {
     private Cipher cipherStrategy;
 
     public Chat() {
-    	cipherStrategy = new NullCipher();
+    	cipherStrategy = CipherFactory.createCipher();
         setLocale(Locale.getDefault());
         socket = connect(new Scanner(System.in));
     }
@@ -273,7 +273,12 @@ public class Chat {
                 output.println("Remote chatter is making updates; please be patient."); // replace with i18n property
             }
         
-        } else {
+        }
+        else if(keyword.equals(bundle.getString("communicate.keyword.cipher"))) {
+             output.println("");
+             CipherFactory.createCipher(name, keys);
+        }    
+        else {
             output.println(bundle.getString("communicate.error.unrecognizedKeyword") + ": " + keyword);
         }
         return true;

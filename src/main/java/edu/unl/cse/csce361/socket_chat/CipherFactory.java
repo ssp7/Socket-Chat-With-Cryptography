@@ -9,6 +9,11 @@ public class CipherFactory {
 		Scanner scan = new Scanner(System.in);
 		name = scan.nextLine();
 		if(name.equalsIgnoreCase("Caesar")) {
+			System.out.println("Please enter shift for the caesar cipher");
+			keys[0] = scan.nextLine();
+			int shift = Integer.parseInt(keys[0]);
+			
+	
 		     return new CaesarCipher();
 		}
 		else if(name.equalsIgnoreCase("Xor")) {
@@ -20,7 +25,7 @@ public class CipherFactory {
 		}
 		
 	}
-	public static Cipher create() {
+	public static Cipher createCipher() {
 		return new NullCipher();
 	}
 }
