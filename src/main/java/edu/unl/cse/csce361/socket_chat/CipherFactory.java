@@ -12,6 +12,8 @@ public class CipherFactory {
 			System.out.println("Please enter shift for the caesar cipher");
 			keys[0] = scan.nextLine();
 			int shift = Integer.parseInt(keys[0]);
+			scan.nextLine();
+			System.out.println("Please enter the message you would like to encrypt");
 		    return new CaesarCipher(shift);
 		}
 		else if(name.equalsIgnoreCase("Xor")) {
