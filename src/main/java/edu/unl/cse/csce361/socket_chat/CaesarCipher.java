@@ -74,8 +74,14 @@ public class CaesarCipher implements Cipher {
 			return plaintext;
 	}
 	public CaesarCipher(int shift){
-		 
 		 this.shift = shift;
 	}
+//  public static void main(String[] args) {
+//	  Cipher c = new CaesarCipher(5);
+//	  String decipher = c.encipher("Heyo");
+//      System.out.println(decipher);
+//  }
+//  
+
 
 }

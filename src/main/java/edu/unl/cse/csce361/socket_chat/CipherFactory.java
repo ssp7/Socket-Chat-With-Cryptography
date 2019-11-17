@@ -10,8 +10,6 @@ public class CipherFactory {
 			System.out.println("Please enter shift for the caesar cipher");
 			keys[0] = scan.nextLine();
 			int shift = Integer.parseInt(keys[0]);
-		
-			System.out.println("Please enter the message you would like to encrypt");
 		    return new CaesarCipher(shift);
 		}
 		else if(name.equalsIgnoreCase("Xor")) {
@@ -27,13 +25,13 @@ public class CipherFactory {
 		return new NullCipher();
 	}
 	
-	public static void main(String[] args) {
-		String name = "Caesar";
-		String[] keys = new String[5];
-	 
-	Cipher ci = createCipher(name, keys);
-	System.out.println(ci.decipher("Mjdt")); 
-	
-	}
+//	public static void main(String[] args) {
+//		String name = "Caesar";
+//		String[] keys = new String[5];
+//	 
+//	Cipher ci = createCipher(name, keys);
+//     System.out.println(ci.decipher("Mjdt"));
+//	  
+//	}
 	
 }
