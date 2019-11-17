@@ -16,7 +16,7 @@ public class CipherFactory {
 		}
 		else if(name.equalsIgnoreCase("Xor")) {
             
-			return new XorCipher();
+			return new HillCipher();
 		}
 		else {
 			return createCipher();

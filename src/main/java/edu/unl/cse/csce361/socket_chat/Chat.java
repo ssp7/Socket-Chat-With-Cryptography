@@ -264,7 +264,6 @@ public class Chat {
         
         } else if (keyword.equals(bundle.getString("communicate.keyword.setLocale"))) {
             if (localMessage) {
-            	
                 output.println("Please enter the code of language you would like to change");// (be sure to use i18n properties)
                 input.readLine();
                 setLocale( Locale.FRENCH );
