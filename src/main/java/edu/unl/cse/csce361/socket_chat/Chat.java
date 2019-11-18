@@ -19,7 +19,7 @@ public class Chat {
     String[] keys = new String[5];
 	public Chat() {
 		cipherStrategy = new CaesarCipher(5);
-		setLocale(Locale.getDefault());
+		setLocale(Locale.FRENCH);
 		socket = connect(new Scanner(System.in));
 	}
 
@@ -272,7 +272,14 @@ public class Chat {
 		else if(keyword.equals(bundle.getString("communicate.keyword.changeCipher"))) {
             String name = input.readLine();  
 			String[] keys = new String[10];
-			   
+			   if(name.equalsIgnoreCase("caesar")) {
+				   output.println("Please enter the shift");
+				   keys[0] = input.readLine();
+			   }
+			   else if(name.equalsIgnoreCase("xor")) {
+				   output.println("Please enter the keys for Xor");
+				   keys[1] = input.readLine();
+			   }
 		      this.cipherStrategy = CipherFactory.createCipher(name, keys);
 		} 
 

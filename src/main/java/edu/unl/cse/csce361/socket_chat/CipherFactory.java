@@ -7,14 +7,11 @@ public class CipherFactory {
 	public static Cipher createCipher(String name, String[] keys) {
 	    Scanner scan = new Scanner(System.in);
 		if(name.equalsIgnoreCase("Caesar")) {
-			System.out.println("Please enter shift for the caesar cipher");
-			keys[0] = scan.nextLine();
 			int shift = Integer.parseInt(keys[0]);
 		    return new CaesarCipher(shift);
 		}
 		else if(name.equalsIgnoreCase("Xor")) {
-			keys[0] = scan.nextLine();
-            String keysForXor = keys[0];
+            String keysForXor = keys[1];
 			return new Xor(keysForXor);
 		}
 		else {
@@ -26,13 +23,5 @@ public class CipherFactory {
 		return new NullCipher();
 	}
 	
-//	public static void main(String[] args) {
-//		String name = "Caesar";
-//		String[] keys = new String[5];
-//	 
-//	Cipher ci = createCipher(name, keys);
-//     System.out.println(ci.decipher("Mjdt"));
-//	  
-//	}
 	
 }
