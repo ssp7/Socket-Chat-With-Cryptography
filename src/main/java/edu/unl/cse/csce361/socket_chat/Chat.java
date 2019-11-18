@@ -290,6 +290,9 @@ public class Chat {
 				   output.println("Please enter the keys for Xor");
 				   keys[1] = input.readLine();
 			   }
+			   else {
+				   output.println("Cipher not found hence set to default cipher");
+			   }
 		      this.cipherStrategy = CipherFactory.createCipher(name, keys);
 		} 
 

@@ -15,6 +15,7 @@ public class CipherFactory {
 			return new Xor(keysForXor);
 		}
 		else {
+			
 			return createCipher();
 		}
 		
