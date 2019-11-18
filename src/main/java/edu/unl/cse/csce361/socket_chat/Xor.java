@@ -57,5 +57,4 @@ public class Xor implements Cipher {
 		this.keyForXor = keys;
 	}
 	
-
 }

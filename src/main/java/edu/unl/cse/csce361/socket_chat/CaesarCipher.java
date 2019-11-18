@@ -48,6 +48,7 @@ public class CaesarCipher implements Cipher {
 			int lengthCiphertext = ciphertext.length();
 			int i =0;
 			while(i<lengthCiphertext) {
+				
 				char plainCipherChar = ciphertext.charAt(i);
 				if(Character.isLowerCase(plainCipherChar)) {
 				char c = (char)(plainCipherChar-shift);
@@ -55,6 +56,7 @@ public class CaesarCipher implements Cipher {
 				if(c < 'a') {
 					plaintext = plaintext + (char)(plainCipherChar+(26-shift));
 				}
+				
 				else {
 					plaintext = plaintext + c;
 				}
@@ -76,12 +78,5 @@ public class CaesarCipher implements Cipher {
 	public CaesarCipher(int shift){
 		 this.shift = shift;
 	}
-//  public static void main(String[] args) {
-//	  Cipher c = new CaesarCipher(5);
-//	  String decipher = c.encipher("Heyo");
-//      System.out.println(decipher);
-//  }
-//  
-
 
 }
