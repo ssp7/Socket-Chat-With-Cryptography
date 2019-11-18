@@ -288,7 +288,7 @@ public class Chat {
 			   }
 			   else if(name.equalsIgnoreCase("xor")) {
 				   output.println("Please enter the keys for Xor");
-				   keys[1] = input.readLine();
+				   keys[0] = input.readLine();
 			   }
 			   else {
 				   output.println("Cipher not found hence set to default cipher");
