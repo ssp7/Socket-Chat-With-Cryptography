@@ -13,8 +13,9 @@ public class CipherFactory {
 		    return new CaesarCipher(shift);
 		}
 		else if(name.equalsIgnoreCase("Xor")) {
-            
-			return new HillCipher();
+			keys[0] = scan.nextLine();
+            String keysForXor = keys[0];
+			return new Xor(keysForXor);
 		}
 		else {
 			return createCipher();
