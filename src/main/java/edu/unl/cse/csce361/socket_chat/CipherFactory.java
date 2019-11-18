@@ -11,7 +11,7 @@ public class CipherFactory {
 		    return new CaesarCipher(shift);
 		}
 		else if(name.equalsIgnoreCase("Xor")) {
-            String keysForXor = keys[1];
+            String keysForXor = keys[0];
 			return new Xor(keysForXor);
 		}
 		else {
