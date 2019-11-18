@@ -270,6 +270,7 @@ public class Chat {
 			}
 		}    
 		else if(keyword.equals(bundle.getString("communicate.keyword.changeCipher"))) {
+			output.println("Please input the cipher you want to change");
             String name = input.readLine();  
 			String[] keys = new String[10];
 			   if(name.equalsIgnoreCase("caesar")) {
